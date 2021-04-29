@@ -2,8 +2,11 @@ import express from 'express';
 import mongoose from 'mongoose';
 import userRouter from './routers/userRouter.js';
 import atendRouter from './routers/atendRouter.js';
+import dotenv from 'dotenv';
 import path from 'path';
 const app = express();
+
+dotenv.config();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
