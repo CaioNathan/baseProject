@@ -22,6 +22,24 @@ footer {
   color: #ffffff;
 }
 
+
+input,
+select,
+textarea,
+button {
+  
+  border-radius: 0.2rem;
+  border: 0.1rem #a4a4a4 solid;
+
+}
+input:hover,
+select:hover,
+textarea:hover,
+
+button:hover {
+  border: 0.1rem #404040 solid;
+}
+
 .modelo {
   display: grid;
   grid-template-areas:
@@ -29,9 +47,11 @@ footer {
     'main'
     'footer';
   grid-template-columns: 1fr;
-  grid-template-rows: 5rem 1fr 7rem;
+  grid-template-rows: 5rem 1fr 5rem;
   height: 100%;
 }
+
+
 
 .flex{
   display: flex;
@@ -79,4 +99,11 @@ a{
 }
 .table button {
   margin: 0 0.2rem;
+}
+
+@media (max-width: 700px) {
+.both{
+  display: grid;
+}
+  
 }

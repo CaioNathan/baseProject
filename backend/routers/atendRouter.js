@@ -89,13 +89,17 @@ atendRouter.put(
       const atendId = req.params.id;
       const atendimento = await Atendimento.findById(atendId);
       if (atendimento) {
-        atendimento.cpf = req.body.cpf;
-        atendimento.tipoDef = req.body.tipoDef;
-        atendimento.tipoAtend = req.body.tipoAtend;
-        atendimento.cep = req.body.cep;
+        
+        atendimento.nome=req.body.nome || atendimento.nome;
+        atendimento.cpf = req.body.cpf || atendimento.cpf ;
+        atendimento.tipoDef = req.body.tipoDef || atendimento.tipoDef;
+        atendimento.tipoAtend = req.body.tipoAtend || atendimento.tipoAtend;
+        atendimento.cep = req.body.cep || atendimento.cep;
         
         const updatedAtend = await atendimento.save();
         res.send({ 
+            cpf:updatedAtend.cpf,
+            nome:updatedAtend.nome,
             _id: updatedAtend._id,
             Atendimento:updatedAtend.tipoAtend[0],
             Deficiencia:updatedAtend.tipoDef[0],

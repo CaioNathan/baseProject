@@ -49,7 +49,7 @@ export default function Cadastro(){
             history.push('/home')
 
         } catch(err){
-            alert(err)
+            alert('Verifique se todos os campos foram preenchidos corretamente. ')
 
         }
          
@@ -67,16 +67,17 @@ export default function Cadastro(){
                     <legend>Atendimento</legend>
                     
 
-                <div>
+                <div className="both">
                 <label htmlFor="cpf"> CPF: </label>
                 <input
-                className="primeiroInput"
+                
                 id="cpf"
                 type="text"
                 placeholder="CPF"
                 value={cpf}
                 onChange={(e) => setCpf(e.target.value)}
                 ></input>
+                
 
                 <label htmlFor="nome"> Nome: </label>
                 <input
@@ -88,7 +89,7 @@ export default function Cadastro(){
                 ></input>
                </div>
 
-               <div>
+               <div className="both">
                 <label htmlFor="Atendimento"> Atendimento: </label>
                 <input
                 id="Atendimento"
@@ -113,8 +114,8 @@ export default function Cadastro(){
 
                
 
-               <div className="formDiv">
-                <div>
+               
+                <div className="both">
                 <label htmlFor="Deficiencia"> Deficiência: </label>
                 <input
                 id="Deficiencia"
@@ -123,8 +124,7 @@ export default function Cadastro(){
                 value={deficiencia}
                 onChange={(e) => setDeficiencia(e.target.value)}
                 ></input>
-                </div>
-                <div>
+               
                 <label htmlFor="codDef"> Código: </label>
                 <input
                 id="codDef"
@@ -135,12 +135,11 @@ export default function Cadastro(){
                 ></input>
                 </div>
 
-               </div>
-
+             
 
                
 
-               <div>
+               <div className="both">
                 <label htmlFor="cep"> CEP: </label>
                 <input
                 className="primeiroInput"
@@ -162,7 +161,7 @@ export default function Cadastro(){
                </div>
 
                
-               <div>
+               <div className="both">
                 <label htmlFor="logradouro"> Logradouro: </label>
                 <input
                 className="primeiroInput"
