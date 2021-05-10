@@ -70,7 +70,6 @@ export default function Editar(props){
    
     async function handleEdit(e){
         e.preventDefault();
-       
         const data ={
             nome,
             cpf,
@@ -79,23 +78,28 @@ export default function Editar(props){
             cep:{cep:cep,logradouro:logradouro,bairro:bairro,cidade:cidade },          
         
         };
-
-        try{
-           await axios.put(`/api/atend/${props.match.params.id}`,data,{
-                headers:{
-                        Authorization:`Bearer ${token}`,
-                    }
-           }) 
+        if (window.confirm("Tem certeza que deseja excluir esse caso?")){
+            try{
+                await axios.put(`/api/atend/${props.match.params.id}`,data,{
+                     headers:{
+                             Authorization:`Bearer ${token}`,
+                         }
+                }) 
+                     
+         
                 
-    
-           
-            alert('Atendimento cadastrado com sucesso!');
-            history.push('/home')
-
-        } catch(err){
-            alert(err)
+                 alert('Editado com sucesso!');
+                 history.push('/home')
+     
+             } catch(err){
+                 alert('Não foi possível editar, tente novamente.')
+     
+             }
 
         }
+        
+
+       
          
     }
 
@@ -107,129 +111,190 @@ export default function Editar(props){
         {
             atendimento.map(atendimentos=>(
                 <>
-                <form onSubmit={handleEdit}>
-        <table className="table">
-        <thead>
-                    <tr>
-                        <th>NOME</th>
-                        <th>CPF</th>
-                        <th>ATENDIMENTO</th>
-                        <th>DEFICIENCIA</th>
-                        <th>ENDEREÇO</th>
-                      
-                        
-                    </tr>
-                    </thead>
-            <tbody>
-              <tr>
-                  
-                <td>
-                    <input type="text" 
-                    defaultValue={nome}
-                    placeholder={atendimentos.nome}
-                    onChange={(e) => setNome(e.target.value)}/>
-                </td>
-                <td>
-                    <input type="text" 
-                    defaultValue={cpf}
-                    placeholder={atendimentos.cpf}
-                    onChange={(e) => setCpf(e.target.value)}/>
-                </td>
-                <td>
-                    <div> 
-                        <div>
-                        <label> Tipo: </label>
-                        <input type="text" 
-                        defaultValue={atend}
-                        placeholder={atendimentos.tipoAtend[0].tipoAtend}
-                        onChange={(e) => setAtend(e.target.value)}/>
-                        </div>
+               <form className="sky-form" onSubmit={handleEdit}>
+				<header>             
+                Atendimento
+                </header>
+				
+				<fieldset>	
 
-                        <div>
-                        <label> Codigo: </label>
-                        <input type="text" 
-                        defaultValue={codigoAtend}
-                        placeholder={atendimentos.tipoAtend[0].codigo}
-                        onChange={(e) => setCodigoAtend(e.target.value)}/>
-                        </div>
+                    <div class="row">
+
+                    <section class="col col-6">
+                    <label className="label"> Nome </label>
+							<label class="input">
+                                <i class="icon-append icon-user"></i>
+								<input type="text" placeholder="Nome"
+                                defaultValue={atendimentos.nome}
+                                onChange={(e) => setNome(e.target.value)}/>
+                                <b class="tooltip tooltip-bottom-right">Nome do Cliente</b>
+							</label>
+					</section>
+
+                    <section class="col col-6">
+                    <label className="label"> CPF </label>
+							<label class="input">
+                                <i class="icon-append icon-user"></i>
+								<input id="cpf"
+                                type="text"
+                                placeholder="CPF"
+                                defaultValue={atendimentos.cpf}
+                                onChange={(e) => setCpf(e.target.value)}/>
+                                <b class="tooltip tooltip-bottom-right">CPF</b>
+							</label>
+						</section>
+
+		
 
                     </div>
-                </td>
 
-                <td>
-                    <div> 
-                        <div>
-                        <label> Tipo: </label>
-                        <input type="text" 
-                        defaultValue={deficiencia}
-                        placeholder={atendimentos.tipoDef[0].tipoDef}
-                        onChange={(e) => setDeficiencia(e.target.value)}/>
-                        </div>
+                    <div class="row">
 
-                        <div>
-                        <label> Codigo: </label>
-                        <input type="text" 
-                        defaultValue={codigoDef}
-                        placeholder={atendimentos.tipoDef[0].codigo}
-                        onChange={(e) => setCodigoDef(e.target.value)}/>
-                        </div>
+                    <section class="col col-6">
+                    <label className="label"> Atendimento </label>
+							<label class="input">
+                                <i class="icon-append icon-user"></i>
+								<input 
+                                id="Atendimento"
+                                type="text"
+                                placeholder="Atendimento"
+                                defaultValue={atendimentos.tipoAtend[0].tipoAtend}
+                                onChange={(e) => setAtendimento(e.target.value)}/>
+                                <b class="tooltip tooltip-bottom-right">Atendimento</b>
+							</label>
+					</section>
 
-                    </div>
-                </td>
+                    <section class="col col-6">
+                    <label className="label"> Codigo  </label>
+							<label class="input">
+                                <i class="icon-append icon-user"></i>
+								<input 
+                                id="codAtend"
+                                type="text"
+                                placeholder="Código do Atendimento"
+                                defaultValue={atendimentos.tipoAtend[0].codigo}
+                                onChange={(e) => setCodigoAtend(e.target.value)}/>
+                                <b class="tooltip tooltip-bottom-right">Código do Atendimento</b>
+							</label>
+						</section>
 
-                <td>
-                    <div> 
-                        <div>
-                        <label> CEP: </label>
-                        <input type="text" 
-                        defaultValue={cep}
-                        placeholder={atendimentos.cep[0].cep}
-                        onChange={(e) => setCep(e.target.value)}/>
-                        </div>
+		
 
-                        <div>
-                        <label> Cidade: </label>
-                        <input type="text" 
-                        defaultValue={cidade}
-                        placeholder={atendimentos.cep[0].cidade}
-                        onChange={(e) => setCidade(e.target.value)}/>
-                        </div>
+                         </div>
 
-                        <div>
-                        <label> Logradouro: </label>
-                        <input type="text" 
-                        defaultValue={logradouro}
-                        placeholder={atendimentos.cep[0].logradouro}
-                        onChange={(e) => setLogradouro(e.target.value)}/>
-                        </div>
+                             <div class="row">
 
-                        <div>
-                        <label> Bairro: </label>
-                        <input type="text" 
-                        defaultValue={bairro}
-                        placeholder={atendimentos.cep[0].bairro}
-                        onChange={(e) => setBairro(e.target.value)}/>
-                        </div>
+                            <section class="col col-6">
+                            <label className="label"> Deficiencia </label>
+                                    <label class="input">
+                                        <i class="icon-append icon-user"></i>
+                                        <input 
+                                        id="Deficiencia"
+                                        type="text"
+                                        placeholder="Deficiência"
+                                        defaultValue={atendimentos.tipoDef[0].tipoDef}
+                                        onChange={(e) => setDeficiencia(e.target.value)}/>
+                                        <b class="tooltip tooltip-bottom-right">Deficiencia</b>
+                                    </label>
+                            </section>
 
-
-
-                    </div>
-                </td>
+                            <section class="col col-6">
+                            <label className="label"> Codigo </label>
+                            
+                                    <label class="input">
+                                        <i class="icon-append icon-user"></i>
+                                        <input 
+                                        id="codigoDef"
+                                        type="text"
+                                        placeholder="Código da Deficiencia"
+                                        defaultValue={atendimentos.tipoDef[0].codigo}
+                                        onChange={(e) => setCodigoDef(e.target.value)}/>
+                                        <b class="tooltip tooltip-bottom-right">Código da Deficiencia</b>
+                                    </label>
+                                </section>
 
 
-              </tr>
-            </tbody>
-        </table>
 
-        <button
-                    type="submit"
-                    className="small"
+                            </div>
+
+
+                            <div class="row">
+
+                                <section class="col col-6">
+                                <label className="label"> CEP </label>
+                                        <label class="input">
+                                            <i class="icon-append icon-user"></i>
+                                            <input 
+                                            id="cep"
+                                            type="text"
+                                            placeholder="CEP"
+                                            defaultValue={atendimentos.cep[0].cep}
+                                            onChange={(e) => setCep(e.target.value)}/>
+                                            <b class="tooltip tooltip-bottom-right">CEP</b>
+                                        </label>
+                                </section>
+
+                                <section class="col col-6">
+                                <label className="label"> Cidade </label>
+                                        <label class="input">
+                                            <i class="icon-append icon-user"></i>
+                                            <input 
+                                           id="cidade"
+                                           type="text"
+                                           placeholder="Cidade"
+                                           defaultValue={atendimentos.cep[0].cidade}
+                                           onChange={(e) => setCidade(e.target.value)}/>
+                                            <b class="tooltip tooltip-bottom-right">Cidade</b>
+                                        </label>
+                                    </section>
+
+
+
+                                </div>
+
+                                <div class="row">
+
+                                <section class="col col-6">
+                                <label className="label"> Bairro </label>
+                                        <label class="input">
+                                            <i class="icon-append icon-user"></i>
+                                            <input 
+                                            id="bairro"
+                                            type="text"
+                                            placeholder="Bairro"
+                                            defaultValue={atendimentos.cep[0].bairro}
+                                            onChange={(e) => setBairro(e.target.value)}/>
+                                            <b class="tooltip tooltip-bottom-right">Bairro</b>
+                                        </label>
+                                </section>
+
+                                <section class="col col-6">
+                                <label className="label"> Logradouro </label>
+                                        <label class="input">
+                                            <i class="icon-append icon-user"></i>
+                                            <input 
+                                           id="logradouro"
+                                           type="text"
+                                           placeholder="Logradouro"
+                                           defaultValue={atendimentos.cep[0].logradouro}
+                                           onChange={(e) => setLogradouro(e.target.value)}/>
+                                            <b class="tooltip tooltip-bottom-right">Logradouro</b>
+                                        </label>
+                                    </section>
+
+
+
+                                </div>
+
+
                     
+                    <button type="submit" className="button">Editar</button>
                     
-                    >
-                     Editar
-                    </button>
-      </form>
+					
+				
+				</fieldset>
+	
+			</form>
 
             </>
             ))

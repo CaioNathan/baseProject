@@ -104,25 +104,30 @@ export default function Consulta(){
                             
                         </td>
                         <td>
-                        <button
-                      type="button"
-                      className="small"
-                      onClick={() =>
-                        history.push(`/editar/${atendimentos._id}`)
-                      }
-                      
-                    >
-                      Editar
-                    </button>
 
-                    <button
-                    type="button"
-                    className="small"
-                    onClick={()=>deleteHandler(atendimentos._id)}
-                    
-                    >
-                     Excluir
-                    </button>
+                      <div className='buttons'>
+
+                     <div>
+                     <span
+                      onClick={()=> history.push(`/editar/${atendimentos._id}`)}
+                      > 
+                      <div> 
+                          <i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
+                          </div>
+                           </span>
+                         
+                     </div>
+
+
+                     <span
+                      onClick={()=>deleteHandler(atendimentos._id)}
+                      > 
+                      <div> 
+                          <i class="fa fa-trash-o" aria-hidden="true"></i> 
+                          </div>
+                          </span>
+                     </div>
+
                         </td>
                         
                         
