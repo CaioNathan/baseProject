@@ -10,12 +10,7 @@ function App() {
   return (
   <BrowserRouter>
     <div className="modelo">
-      <header>
-
-        <p> Cabeçalho </p>
-
-
-      </header>
+     
 
       <main>
 
@@ -27,13 +22,6 @@ function App() {
 
       </main>
 
-
-
-      <footer>
-
-        <p> End </p>
-
-      </footer>
 
 
 

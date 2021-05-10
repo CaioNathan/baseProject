@@ -31,40 +31,31 @@ export default function SigninScreen(props) {
     }
 
   return (
-    <div>
-      <form className="form" onSubmit={handleLogin}>
-        <div>
-          <h1>Login</h1>
-        </div>
-        
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Email"
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label htmlFor="password">Senha</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Senha"
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
-        </div>
-        <div>
-          <label />
-          <button className="primary" type="submit">
-            Login
-          </button>
-        </div>
-       
-      </form>
+    <div className='login'>
+        <div class="login-box">
+              <h2>Login</h2>
+              <form onSubmit={handleLogin}>
+                <div class="user-box">
+                  <input type="text"  
+                  required
+                  onChange={(e) => setEmail(e.target.value)}/>
+                  <label>Email</label>
+                </div>
+                <div class="user-box">
+                  <input type="password" 
+                  required
+                  onChange={(e) => setPassword(e.target.value)}/>
+                  <label>Senha</label>
+                </div>
+                <button type='submit'>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  Entrar
+                </button>
+              </form>
+            </div>
     </div>
   );
 }
