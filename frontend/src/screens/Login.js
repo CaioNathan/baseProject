@@ -36,13 +36,17 @@ export default function SigninScreen(props) {
               <h2>Login</h2>
               <form onSubmit={handleLogin}>
                 <div class="user-box">
-                  <input type="text"  
+                  <input 
+                  id='email'
+                  type="text"  
                   required
                   onChange={(e) => setEmail(e.target.value)}/>
                   <label>Email</label>
                 </div>
                 <div class="user-box">
-                  <input type="password" 
+                  <input 
+                  id='password'
+                  type="password" 
                   required
                   onChange={(e) => setPassword(e.target.value)}/>
                   <label>Senha</label>
