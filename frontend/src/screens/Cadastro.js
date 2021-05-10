@@ -61,6 +61,184 @@ export default function Cadastro(){
         <div>
              
             <div>
+
+            <form className="sky-form" onSubmit={handleAtendimento}>
+				<header>             
+                Atendimento
+                </header>
+				
+				<fieldset>	
+
+                    <div class="row">
+
+                    <section class="col col-6">
+							<label class="input">
+                                <i class="icon-append icon-user"></i>
+								<input type="text" placeholder="Nome"
+                                value={nome}
+                                onChange={(e) => setNome(e.target.value)}/>
+                                <b class="tooltip tooltip-bottom-right">Nome do Cliente</b>
+							</label>
+					</section>
+
+                    <section class="col col-6">
+							<label class="input">
+                                <i class="icon-append icon-user"></i>
+								<input id="cpf"
+                                type="text"
+                                placeholder="CPF"
+                                value={cpf}
+                                onChange={(e) => setCpf(e.target.value)}/>
+                                <b class="tooltip tooltip-bottom-right">CPF</b>
+							</label>
+						</section>
+
+		
+
+                    </div>
+
+                    <div class="row">
+
+                    <section class="col col-6">
+							<label class="input">
+                                <i class="icon-append icon-user"></i>
+								<input 
+                                id="Atendimento"
+                                type="text"
+                                placeholder="Atendimento"
+                                value={atendimento}
+                                onChange={(e) => setAtendimento(e.target.value)}/>
+                                <b class="tooltip tooltip-bottom-right">Atendimento</b>
+							</label>
+					</section>
+
+                    <section class="col col-6">
+							<label class="input">
+                                <i class="icon-append icon-user"></i>
+								<input 
+                                id="codAtend"
+                                type="text"
+                                placeholder="Código do Atendimento"
+                                value={codigoAtend}
+                                onChange={(e) => setCodigoAtend(e.target.value)}/>
+                                <b class="tooltip tooltip-bottom-right">Código do Atendimento</b>
+							</label>
+						</section>
+
+		
+
+                         </div>
+
+                             <div class="row">
+
+                            <section class="col col-6">
+                                    <label class="input">
+                                        <i class="icon-append icon-user"></i>
+                                        <input 
+                                        id="Deficiencia"
+                                        type="text"
+                                        placeholder="Deficiência"
+                                        value={deficiencia}
+                                        onChange={(e) => setDeficiencia(e.target.value)}/>
+                                        <b class="tooltip tooltip-bottom-right">Deficiencia</b>
+                                    </label>
+                            </section>
+
+                            <section class="col col-6">
+                                    <label class="input">
+                                        <i class="icon-append icon-user"></i>
+                                        <input 
+                                        id="codigoDef"
+                                        type="text"
+                                        placeholder="Código da Deficiencia"
+                                        value={codigoDef}
+                                        onChange={(e) => setCodigoDef(e.target.value)}/>
+                                        <b class="tooltip tooltip-bottom-right">Código da Deficiencia</b>
+                                    </label>
+                                </section>
+
+
+
+                            </div>
+
+
+                            <div class="row">
+
+                                <section class="col col-6">
+                                        <label class="input">
+                                            <i class="icon-append icon-user"></i>
+                                            <input 
+                                            id="cep"
+                                            type="text"
+                                            placeholder="CEP"
+                                            value={cep}
+                                            onChange={(e) => setCep(e.target.value)}/>
+                                            <b class="tooltip tooltip-bottom-right">CEP</b>
+                                        </label>
+                                </section>
+
+                                <section class="col col-6">
+                                        <label class="input">
+                                            <i class="icon-append icon-user"></i>
+                                            <input 
+                                           id="cidade"
+                                           type="text"
+                                           placeholder="Cidade"
+                                           value={cidade}
+                                           onChange={(e) => setCidade(e.target.value)}/>
+                                            <b class="tooltip tooltip-bottom-right">Cidade</b>
+                                        </label>
+                                    </section>
+
+
+
+                                </div>
+
+                                <div class="row">
+
+                                <section class="col col-6">
+                                        <label class="input">
+                                            <i class="icon-append icon-user"></i>
+                                            <input 
+                                            id="bairro"
+                                            type="text"
+                                            placeholder="Bairro"
+                                            value={bairro}
+                                            onChange={(e) => setBairro(e.target.value)}/>
+                                            <b class="tooltip tooltip-bottom-right">Bairro</b>
+                                        </label>
+                                </section>
+
+                                <section class="col col-6">
+                                        <label class="input">
+                                            <i class="icon-append icon-user"></i>
+                                            <input 
+                                           id="logradouro"
+                                           type="text"
+                                           placeholder="Logradouro"
+                                           value={logradouro}
+                                           onChange={(e) => setLogradouro(e.target.value)}/>
+                                            <b class="tooltip tooltip-bottom-right">Logradouro</b>
+                                        </label>
+                                    </section>
+
+
+
+                                </div>
+
+
+                    
+                    <button type="submit" className="button">Cadastrar</button>
+                    
+					
+				
+				</fieldset>
+	
+			</form>
+
+
+
+
                 <form className='formCadastro' onSubmit={handleAtendimento}>
 
                 <fieldset>
